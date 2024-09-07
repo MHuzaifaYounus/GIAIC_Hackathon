@@ -17,7 +17,7 @@ body {
 
 .resume-container {
     position: relative;
-    display: none;
+    display: flex;
     max-width: 900px;
     margin: 50px auto;
     z-index: 1;
