@@ -122,12 +122,12 @@ function generateResume(inputData) {
     document.getElementsByClassName("User_Name")[0].innerHTML = inputData.name;
     document.getElementsByClassName("User_Profession")[0].innerHTML = inputData.profession;
     document.getElementsByClassName("User_About")[0].innerHTML = inputData.aboutMe;
-    document.getElementsByClassName("User_Email")[0].innerHTML = `<img class="icon" src="/src/icons/email.svg" alt="icon not found"> <a  target="_blank"
+    document.getElementsByClassName("User_Email")[0].innerHTML = `<img class="icon" src="src/icons/email.svg" alt="icon not found"> <a  target="_blank"
     href="${inputData.contact.email}">${inputData.contact.email}</a>`;
-    document.getElementsByClassName("User_Website")[0].innerHTML = `<img class="icon" src="/src/icons/web.svg" alt="icon not found"> <a  target="_blank"
+    document.getElementsByClassName("User_Website")[0].innerHTML = `<img class="icon" src="src/icons/web.svg" alt="icon not found"> <a  target="_blank"
     href="${inputData.contact.website}">${inputData.contact.website}</a>`;
     document.getElementsByClassName("User_Num")[0].innerHTML =
-        `<img class="icon" src="/src/icons/phone.svg" alt="icon not found"> ${inputData.contact.phone}`;
+        `<img class="icon" src="src/icons/phone.svg" alt="icon not found"> ${inputData.contact.phone}`;
     let skillSection = document.getElementsByClassName("User_Skills")[0];
     inputData.skills.forEach(skill => {
         const skillElement = document.createElement('li');
@@ -137,7 +137,7 @@ function generateResume(inputData) {
     let languagesSection = document.getElementsByClassName("languages")[0];
     inputData.languages.forEach(language => {
         const languageElement = document.createElement('p');
-        languageElement.innerHTML = `<img class="icon" src="/src/icons/tick.svg" alt="icon not found"> ${language}`;
+        languageElement.innerHTML = `<img class="icon" src="src/icons/tick.svg" alt="icon not found"> ${language}`;
         languagesSection.appendChild(languageElement);
     });
     let mainExperienceSection = document.getElementsByClassName("experience")[0];

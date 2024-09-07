@@ -19,6 +19,7 @@ body {
     position: relative;
     display: none;
     max-width: 900px;
+    min-width: 800px;
     margin: 50px auto;
     z-index: 1;
     background-color: white;

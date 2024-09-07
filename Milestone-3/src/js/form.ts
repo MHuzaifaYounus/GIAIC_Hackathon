@@ -189,16 +189,16 @@ function generateResume(inputData: ResumeFormData) {
     document.getElementsByClassName("User_About")[0].innerHTML = inputData.aboutMe;
 
 
-    document.getElementsByClassName("User_Email")[0].innerHTML = `<img class="icon" src="/src/icons/email.svg" alt="icon not found"> <a  target="_blank"
+    document.getElementsByClassName("User_Email")[0].innerHTML = `<img class="icon" src="src/icons/email.svg" alt="icon not found"> <a  target="_blank"
     href="${inputData.contact.email}">${inputData.contact.email}</a>`;
 
 
-    document.getElementsByClassName("User_Website")[0].innerHTML = `<img class="icon" src="/src/icons/web.svg" alt="icon not found"> <a  target="_blank"
+    document.getElementsByClassName("User_Website")[0].innerHTML = `<img class="icon" src="src/icons/web.svg" alt="icon not found"> <a  target="_blank"
     href="${inputData.contact.website}">${inputData.contact.website}</a>`;
 
 
     document.getElementsByClassName("User_Num")[0].innerHTML =
-        `<img class="icon" src="/src/icons/phone.svg" alt="icon not found"> ${inputData.contact.phone}`
+        `<img class="icon" src="src/icons/phone.svg" alt="icon not found"> ${inputData.contact.phone}`
 
 
     let skillSection = document.getElementsByClassName("User_Skills")[0] as HTMLElement
@@ -211,7 +211,7 @@ function generateResume(inputData: ResumeFormData) {
     let languagesSection = document.getElementsByClassName("languages")[0] as HTMLElement
     inputData.languages.forEach(language => {
         const languageElement = document.createElement('p');
-        languageElement.innerHTML = `<img class="icon" src="/src/icons/tick.svg" alt="icon not found"> ${language}`;
+        languageElement.innerHTML = `<img class="icon" src="src/icons/tick.svg" alt="icon not found"> ${language}`;
         languagesSection.appendChild(languageElement);
     })
     
