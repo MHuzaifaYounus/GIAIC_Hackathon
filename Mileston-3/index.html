@@ -103,7 +103,16 @@
                 <label for="website">Website:</label>
                 <input type="url" id="website" name="website" placeholder="https://yourwebsite.com">
             </fieldset>
-           
+
+            <fieldset id="profile-picture-section">
+                <legend>Profile Picture</legend>
+                <div class="profile-picture-entry">
+                    <label for="profile-picture">Profile Picture:</label>
+                    <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
+                </div>
+                <button type="button" class="add-btn" onclick="uploadProfilePicture()">Upload Picture</button>
+            </fieldset>
+            
              
            
             
@@ -114,8 +123,8 @@
 
         <section class="sidebar">
             <img id="design" src="/src/assets/design.png" alt="design not found">
-            <div class="profile_img_box">
-                <img src="/src/assets/profile_pic.png" alt="Profile Pic Not Available">
+            <div class="profile_img_box" id="profile_img_box">
+                
             </div>
             <h2 class="sidebar_subheading">Contact Information</h2>
             <div class="contact-info">
@@ -161,6 +170,5 @@
 
     </div>
     <script src="./src/js/form.js"></script>
-    <script src="/src/js/main.js"></script>
 </body>
 </html>

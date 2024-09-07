@@ -65,7 +65,7 @@ function addSkill() {
     `;
     skillsSection.insertBefore(newSkillEntry, skillsSection.querySelector('.add-btn'));
 }
-// Form submit handler
+// Form submit handler to generate resume
 function handleFormSubmit(event) {
     event.preventDefault();
     const name = document.querySelector('input[name="name"]').value;
@@ -116,6 +116,7 @@ function handleFormSubmit(event) {
     };
     generateResume(formData);
 }
+//to generat resume
 function generateResume(inputData) {
     console.log('Form Data:', inputData);
     document.getElementsByClassName("User_Name")[0].innerHTML = inputData.name;
@@ -154,6 +155,7 @@ function generateResume(inputData) {
         let certificationElement = createExperienceSection(certification.certName, certification.certDescription);
         mainCertificationSection.appendChild(certificationElement);
     });
+    uploadProfilePicture();
     const formContainer = document.getElementsByClassName("form-container")[0];
     const resumeContainer = document.getElementsByClassName("resume-container")[0];
     if (formContainer) {
@@ -163,6 +165,7 @@ function generateResume(inputData) {
         resumeContainer.style.display = "flex";
     }
 }
+// to create sections
 function createExperienceSection(educationTitle, educationDetails) {
     const container = document.createElement('div');
     container.className = 'collapse-container';
@@ -191,4 +194,29 @@ function createExperienceSection(educationTitle, educationDetails) {
         }
     });
     return container;
+}
+function uploadProfilePicture() {
+    const fileInput = document.getElementById('profile-picture');
+    if (fileInput.files && fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        // Create a FileReader to read the file
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            var _a;
+            // Create an image element to display the profile picture
+            const image = document.createElement('img');
+            image.src = (_a = event.target) === null || _a === void 0 ? void 0 : _a.result;
+            image.alt = 'Profile Picture';
+            // Add the image to the DOM or display it in a specific section
+            const pictureSection = document.getElementById('profile_img_box');
+            if (pictureSection) {
+                pictureSection.appendChild(image);
+            }
+        };
+        // Read the file as a data URL
+        reader.readAsDataURL(file);
+    }
+    else {
+        alert('Please select a file to upload.');
+    }
 }

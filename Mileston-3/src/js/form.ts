@@ -117,7 +117,7 @@ function addSkill(): void {
     skillsSection.insertBefore(newSkillEntry, skillsSection.querySelector('.add-btn'));
 }
 
-// Form submit handler
+// Form submit handler to generate resume
 function handleFormSubmit(event: Event): void {
     event.preventDefault();
 
@@ -177,6 +177,7 @@ function handleFormSubmit(event: Event): void {
     generateResume(formData)
 
 }
+//to generat resume
 function generateResume(inputData: ResumeFormData) {
     console.log('Form Data:', inputData);
 
@@ -230,7 +231,7 @@ function generateResume(inputData: ResumeFormData) {
         let certificationElement = createExperienceSection(certification.certName,certification.certDescription)
         mainCertificationSection.appendChild(certificationElement);
     })
-
+    uploadProfilePicture()
 
 
     const formContainer = document.getElementsByClassName("form-container")[0] as HTMLElement;
@@ -246,6 +247,7 @@ function generateResume(inputData: ResumeFormData) {
 
 
 }
+// to create sections
 function createExperienceSection(educationTitle:string,educationDetails:string):HTMLElement {
     const container = document.createElement('div');
     container.className = 'collapse-container';
@@ -283,4 +285,31 @@ function createExperienceSection(educationTitle:string,educationDetails:string):
     });
 
     return container
+}
+function uploadProfilePicture(): void {
+    const fileInput = document.getElementById('profile-picture') as HTMLInputElement;
+
+    if (fileInput.files && fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        
+        // Create a FileReader to read the file
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            // Create an image element to display the profile picture
+            const image = document.createElement('img');
+            image.src = event.target?.result as string;
+            image.alt = 'Profile Picture';
+
+            // Add the image to the DOM or display it in a specific section
+            const pictureSection = document.getElementById('profile_img_box');
+            if (pictureSection) {
+                pictureSection.appendChild(image);
+            }
+        };
+        
+        // Read the file as a data URL
+        reader.readAsDataURL(file);
+    } else {
+        alert('Please select a file to upload.');
+    }
 }
