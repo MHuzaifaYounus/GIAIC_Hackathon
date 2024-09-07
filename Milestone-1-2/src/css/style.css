@@ -1,0 +1,190 @@
+:root {
+    --main-color: #172243;
+    --main-text: #274472;
+    --secondary-color: #5290C9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #232323;
+}
+
+.resume-container {
+    position: relative;
+    display: flex;
+    max-width: 900px;
+    margin: 50px auto;
+    z-index: 1;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#design {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    border-top-left-radius: 8px;
+    left: 0;
+}
+
+.sidebar {
+    background-color: var(--main-color);
+    color: white;
+    border-top-left-radius: 6px;
+    z-index: -2;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile_img_box {
+    height: 200px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    width: 200px;
+    margin-top: 30px;
+}
+
+.profile_img_box img {
+    border-radius: 100%;
+    width: 98%;
+    height: 98%;
+}
+
+.sidebar_subheading {
+    height: 50px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 100%;
+    line-height: 50px;
+    background-color: var(--secondary-color);
+}
+
+.sidebar_subheading:first-of-type {
+    margin-top: 100px;
+}
+
+.user_info {
+    margin-top: 200px;
+    margin-bottom: 40px;
+    max-height: 200px;
+    width: 100%;
+
+}
+
+.user_info h1 {
+    font-size: 3rem;
+    font-weight: bolder;
+    color: var(--main-text);
+}
+
+.user_info h2 {
+    padding-top: 10px;
+    font-size: 1.5rem;
+    color: var(--main-text);
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.contact-info a:hover {
+    color: var(--secondary-color);
+}
+
+.contact-info p,
+.skills ul li,
+.languages p {
+    font-size: 14px;
+    margin-bottom: 10px;
+
+
+
+}
+
+.icon {
+    width: 40px;
+    padding: 0 10px;
+    fill: white;
+    position: relative;
+    top: 5px;
+    display: inline;
+
+
+}
+
+.skills h3,
+.languages h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+.main-content {
+    padding: 20px;
+    width: 60%;
+}
+
+.about,
+.experience,
+.education,
+.certification {
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+.education-item {
+    margin-bottom: 15px;
+}
+
+.collapse-btn {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 1px 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.collapse-details {
+    display: none;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+h3 {
+    font-size: 22px;
+    color: var(--main-color);
+    margin-bottom: 10px;
+    border-left: solid;
+}
+
+h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
