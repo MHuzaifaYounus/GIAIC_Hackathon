@@ -1,4 +1,5 @@
 "use strict";
+// Define types for the data structures
 // Add more experience
 function addExperience() {
     const experienceSection = document.getElementById('experience-section');
@@ -231,11 +232,15 @@ function generateResume(inputData) {
     const formContainer = document.getElementsByClassName("form-container")[0];
     const resumeContainer = document.getElementsByClassName("resume-container")[0];
     const downloadButton = document.getElementById("download-btn");
+    const edit_title = document.getElementById("edit_title");
     if (downloadButton) {
         downloadButton.style.display = "block";
     }
     if (formContainer) {
         formContainer.style.display = "none";
+    }
+    if (edit_title) {
+        edit_title.style.display = "block";
     }
     if (resumeContainer) {
         resumeContainer.style.display = "flex";

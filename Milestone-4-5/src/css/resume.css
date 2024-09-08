@@ -15,7 +15,11 @@ body {
     background-color: #232323;
 
 }
-
+#edit_title{
+    display: none;
+    position: absolute;
+    top: 10px;
+}
 .resume-container {
     position: relative;
     display: none;

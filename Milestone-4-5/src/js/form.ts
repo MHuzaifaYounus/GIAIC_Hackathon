@@ -1,4 +1,5 @@
 // Define types for the data structures
+
 interface Experience {
     company: string;
     description: string;
@@ -184,6 +185,7 @@ function generateResume(inputData: ResumeFormData) {
     // Only show name and profession if they are provided
     if (inputData.name) {
         document.getElementsByClassName("User_Name")[0].innerHTML = inputData.name;
+    
     }
 
     if (inputData.profession) {
@@ -257,7 +259,7 @@ function generateResume(inputData: ResumeFormData) {
         }
     }
 
- 
+
 
     // Experiences: only add experience section if experiences are provided
     if (inputData.experiences[0].company) {
@@ -267,7 +269,7 @@ function generateResume(inputData: ResumeFormData) {
             mainExperienceSection.appendChild(experienceElement);
         });
     }
-    else if(!inputData.experiences[0].company){
+    else if (!inputData.experiences[0].company) {
         let experience_Section = document.getElementsByClassName("experience")[0] as HTMLElement
         if (experience_Section) {
             experience_Section.style.display = "none";
@@ -282,7 +284,7 @@ function generateResume(inputData: ResumeFormData) {
             mainEducationSection.appendChild(educationElement);
         });
     }
-    else if(!inputData.educations[0].institution){
+    else if (!inputData.educations[0].institution) {
         let education_Section = document.getElementsByClassName("education")[0] as HTMLElement
         if (education_Section) {
             education_Section.style.display = "none";
@@ -297,7 +299,7 @@ function generateResume(inputData: ResumeFormData) {
             mainCertificationSection.appendChild(certificationElement);
         });
     }
-    else if(!inputData.certifications[0].certName){
+    else if (!inputData.certifications[0].certName) {
         let certification_Section = document.getElementsByClassName("certification")[0] as HTMLElement
         if (certification_Section) {
             certification_Section.style.display = "none";
@@ -309,16 +311,23 @@ function generateResume(inputData: ResumeFormData) {
     const formContainer = document.getElementsByClassName("form-container")[0] as HTMLElement;
     const resumeContainer = document.getElementsByClassName("resume-container")[0] as HTMLElement;
     const downloadButton = document.getElementById("download-btn") as HTMLElement
+    const edit_title = document.getElementById("edit_title") as HTMLElement
     if (downloadButton) {
         downloadButton.style.display = "block";
     }
     if (formContainer) {
         formContainer.style.display = "none";
+        
+    }
+    if (edit_title) {
+        edit_title.style.display = "block";
+        
     }
 
     if (resumeContainer) {
         resumeContainer.style.display = "flex";
     }
+
 }
 
 // to create sections
@@ -391,3 +400,6 @@ function uploadProfilePicture(): void {
         alert('Please select a file to upload.');
     }
 }
+
+
+

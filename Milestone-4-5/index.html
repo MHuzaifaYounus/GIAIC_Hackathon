@@ -124,9 +124,9 @@
             <button type="submit">Submit</button>
         </form>
     </div>
-   
+    <h1 id="edit_title">Edit Your Resume By Clicking It</h1>
     <div id="resume" class="resume-container">
-        <button id="download-btn">Download</button>
+        <button onclick="downloadResumeAsPDF()" id="download-btn">Download</button>
         <section class="sidebar">
             <img id="design" src="src/assets/design.png" alt="design not found">
             <div class="profile_img_box" id="profile_img_box">
@@ -175,14 +175,16 @@
         </section>
 
     </div>
+
+
     <script src="./src/js/form.js"></script>
     <script src="./src/js/editable.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
     <script>
-   
-        const resume = document.querySelector("#resume") ;
+
+        const resume = document.querySelector("#resume");
         const downloadButton = document.querySelector("#download-btn");
-     
+
         function downloadResumeAsPDF() {
             downloadButton.style.display = "none"
             setTimeout(() => {
@@ -190,8 +192,10 @@
             }, 3000);
             if (resume) {
                 html2pdf().from(resume).save('resume.pdf');
+      
             }
         }
+        
         downloadButton.addEventListener("click", downloadResumeAsPDF);
 
     </script>
