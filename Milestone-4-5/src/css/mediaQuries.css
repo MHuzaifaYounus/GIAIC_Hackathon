@@ -1,6 +1,6 @@
 /* For devices with a width of 768px or smaller (tablets) */
 @media (max-width: 768px) {
-    edit_title{
+    #edit_title{
         display: none;
     }
     .form-container{
