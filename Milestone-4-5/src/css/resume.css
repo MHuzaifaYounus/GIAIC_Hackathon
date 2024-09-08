@@ -198,3 +198,17 @@ p {
     padding-bottom: 20px;
     color: black;
 }
+#resume{
+    position: relative;
+}
+#download-btn{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top-right-radius: 8px;
+    background-color: var(--main-text);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+}

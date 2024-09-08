@@ -308,7 +308,10 @@ function generateResume(inputData: ResumeFormData) {
     // Toggle visibility of form and resume containers
     const formContainer = document.getElementsByClassName("form-container")[0] as HTMLElement;
     const resumeContainer = document.getElementsByClassName("resume-container")[0] as HTMLElement;
-
+    const downloadButton = document.getElementById("download-btn") as HTMLElement
+    if (downloadButton) {
+        downloadButton.style.display = "block";
+    }
     if (formContainer) {
         formContainer.style.display = "none";
     }
