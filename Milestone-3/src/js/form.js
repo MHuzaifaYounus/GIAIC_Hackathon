@@ -124,37 +124,49 @@ function generateResume(inputData) {
     document.getElementsByClassName("User_About")[0].innerHTML = inputData.aboutMe;
     document.getElementsByClassName("User_Email")[0].innerHTML = `<img class="icon" src="src/icons/email.svg" alt="icon not found"> <a  target="_blank"
     href="${inputData.contact.email}">${inputData.contact.email}</a>`;
-    document.getElementsByClassName("User_Website")[0].innerHTML = `<img class="icon" src="src/icons/web.svg" alt="icon not found"> <a  target="_blank"
-    href="${inputData.contact.website}">${inputData.contact.website}</a>`;
+    if (inputData.contact.website) {
+        document.getElementsByClassName("User_Website")[0].innerHTML = `<img class="icon" src="src/icons/web.svg" alt="icon not found"> <a  target="_blank"
+        href="${inputData.contact.website}">${inputData.contact.website}</a>`;
+    }
     document.getElementsByClassName("User_Num")[0].innerHTML =
         `<img class="icon" src="src/icons/phone.svg" alt="icon not found"> ${inputData.contact.phone}`;
-    let skillSection = document.getElementsByClassName("User_Skills")[0];
-    inputData.skills.forEach(skill => {
-        const skillElement = document.createElement('li');
-        skillElement.textContent = `${skill.skill}:${skill.proficiency}`;
-        skillSection.appendChild(skillElement);
-    });
-    let languagesSection = document.getElementsByClassName("languages")[0];
-    inputData.languages.forEach(language => {
-        const languageElement = document.createElement('p');
-        languageElement.innerHTML = `<img class="icon" src="src/icons/tick.svg" alt="icon not found"> ${language}`;
-        languagesSection.appendChild(languageElement);
-    });
-    let mainExperienceSection = document.getElementsByClassName("experience")[0];
-    inputData.experiences.forEach(experience => {
-        let experienceElement = createExperienceSection(experience.company, experience.description);
-        mainExperienceSection.appendChild(experienceElement);
-    });
-    let mainEducationSection = document.getElementsByClassName("education")[0];
-    inputData.educations.forEach(education => {
-        let educationElement = createExperienceSection(education.institution, education.description);
-        mainEducationSection.appendChild(educationElement);
-    });
-    let mainCertificationSection = document.getElementsByClassName("certification")[0];
-    inputData.certifications.forEach(certification => {
-        let certificationElement = createExperienceSection(certification.certName, certification.certDescription);
-        mainCertificationSection.appendChild(certificationElement);
-    });
+    if (inputData.skills) {
+        let skillSection = document.getElementsByClassName("User_Skills")[0];
+        inputData.skills.forEach(skill => {
+            const skillElement = document.createElement('li');
+            skillElement.textContent = `${skill.skill}:${skill.proficiency}`;
+            skillSection.appendChild(skillElement);
+        });
+    }
+    if (inputData.languages) {
+        let languagesSection = document.getElementsByClassName("languages")[0];
+        inputData.languages.forEach(language => {
+            const languageElement = document.createElement('p');
+            languageElement.innerHTML = `<img class="icon" src="src/icons/tick.svg" alt="icon not found"> ${language}`;
+            languagesSection.appendChild(languageElement);
+        });
+    }
+    if (inputData.experiences) {
+        let mainExperienceSection = document.getElementsByClassName("experience")[0];
+        inputData.experiences.forEach(experience => {
+            let experienceElement = createExperienceSection(experience.company, experience.description);
+            mainExperienceSection.appendChild(experienceElement);
+        });
+    }
+    if (inputData.educations) {
+        let mainEducationSection = document.getElementsByClassName("education")[0];
+        inputData.educations.forEach(education => {
+            let educationElement = createExperienceSection(education.institution, education.description);
+            mainEducationSection.appendChild(educationElement);
+        });
+    }
+    if (inputData.certifications) {
+        let mainCertificationSection = document.getElementsByClassName("certification")[0];
+        inputData.certifications.forEach(certification => {
+            let certificationElement = createExperienceSection(certification.certName, certification.certDescription);
+            mainCertificationSection.appendChild(certificationElement);
+        });
+    }
     uploadProfilePicture();
     const formContainer = document.getElementsByClassName("form-container")[0];
     const resumeContainer = document.getElementsByClassName("resume-container")[0];
