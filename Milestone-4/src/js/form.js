@@ -187,7 +187,6 @@ function generateResume(inputData) {
     // Experiences: only add experience section if experiences are provided
     if (inputData.experiences[0].company) {
         let mainExperienceSection = document.getElementsByClassName("experience")[0];
-        mainExperienceSection.innerHTML = ''; // Clear existing content if any
         inputData.experiences.forEach(experience => {
             let experienceElement = createExperienceSection(experience.company, experience.description);
             mainExperienceSection.appendChild(experienceElement);
@@ -202,7 +201,6 @@ function generateResume(inputData) {
     // Educations: only add education section if educations are provided
     if (inputData.educations[0].institution) {
         let mainEducationSection = document.getElementsByClassName("education")[0];
-        mainEducationSection.innerHTML = ''; // Clear existing content if any
         inputData.educations.forEach(education => {
             let educationElement = createExperienceSection(education.institution, education.description);
             mainEducationSection.appendChild(educationElement);
@@ -217,7 +215,6 @@ function generateResume(inputData) {
     // Certifications: only add certification section if certifications are provided
     if (inputData.certifications[0].certName) {
         let mainCertificationSection = document.getElementsByClassName("certification")[0];
-        mainCertificationSection.innerHTML = ''; // Clear existing content if any
         inputData.certifications.forEach(certification => {
             let certificationElement = createExperienceSection(certification.certName, certification.certDescription);
             mainCertificationSection.appendChild(certificationElement);
