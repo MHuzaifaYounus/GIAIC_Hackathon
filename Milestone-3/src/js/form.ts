@@ -181,69 +181,134 @@ function handleFormSubmit(event: Event): void {
 function generateResume(inputData: ResumeFormData) {
     console.log('Form Data:', inputData);
 
-    document.getElementsByClassName("User_Name")[0].innerHTML = inputData.name;
+    // Only show name and profession if they are provided
+    if (inputData.name) {
+        document.getElementsByClassName("User_Name")[0].innerHTML = inputData.name;
+    }
 
-    document.getElementsByClassName("User_Profession")[0].innerHTML = inputData.profession;
+    if (inputData.profession) {
+        document.getElementsByClassName("User_Profession")[0].innerHTML = inputData.profession;
+    }
 
+    if (inputData.aboutMe) {
+        document.getElementsByClassName("User_About")[0].innerHTML = inputData.aboutMe;
+    }
 
-    document.getElementsByClassName("User_About")[0].innerHTML = inputData.aboutMe;
-
-
-    document.getElementsByClassName("User_Email")[0].innerHTML = `<img class="icon" src="src/icons/email.svg" alt="icon not found"> <a  target="_blank"
-    href="${inputData.contact.email}">${inputData.contact.email}</a>`;
+    // Contact details: only display if provided
+    if (inputData.contact.email) {
+        document.getElementsByClassName("User_Email")[0].innerHTML = `
+            <img class="icon" src="src/icons/email.svg" alt="icon not found"> 
+            <a target="_blank" href="mailto:${inputData.contact.email}">${inputData.contact.email}</a>`;
+    }
 
     if (inputData.contact.website) {
-        document.getElementsByClassName("User_Website")[0].innerHTML = `<img class="icon" src="src/icons/web.svg" alt="icon not found"> <a  target="_blank"
-        href="${inputData.contact.website}">${inputData.contact.website}</a>`;
+        document.getElementsByClassName("User_Website")[0].innerHTML = `
+            <img class="icon" src="src/icons/web.svg" alt="icon not found"> 
+            <a target="_blank" href="${inputData.contact.website}">${inputData.contact.website}</a>`;
     }
 
+    if (inputData.contact.phone) {
+        document.getElementsByClassName("User_Num")[0].innerHTML = `
+            <img class="icon" src="src/icons/phone.svg" alt="icon not found"> ${inputData.contact.phone}`;
+    }
 
-    document.getElementsByClassName("User_Num")[0].innerHTML =
-        `<img class="icon" src="src/icons/phone.svg" alt="icon not found"> ${inputData.contact.phone}`
-
-    if (inputData.skills) {
-        let skillSection = document.getElementsByClassName("User_Skills")[0] as HTMLElement
+    // Skills: only add skills section if skills are provided
+    if (inputData.skills[0].skill) {
+        let skillSection = document.getElementsByClassName("User_Skills")[0] as HTMLElement;
+        skillSection.innerHTML = ''; // Clear existing content if any
         inputData.skills.forEach(skill => {
             const skillElement = document.createElement('li');
-            skillElement.textContent = `${skill.skill}:${skill.proficiency}`;
+            skillElement.textContent = `${skill.skill}: ${skill.proficiency}`;
             skillSection.appendChild(skillElement);
-        })
+        });
     }
 
-    if (inputData.languages) {
-        let languagesSection = document.getElementsByClassName("languages")[0] as HTMLElement
+    else if (!inputData.skills[0].skill) {
+        let skills_heading = document.getElementsByClassName("skills_heading")[0] as HTMLElement
+        if (skills_heading) {
+            skills_heading.style.display = "none";
+        }
+        let skills_section = document.getElementsByClassName("skills")[0] as HTMLElement
+        if (skills_section) {
+            skills_section.style.display = "none";
+        }
+    }
+
+
+    // Languages: only add languages section if languages are provided
+    if (inputData.languages[0]) {
+        let languagesSection = document.getElementsByClassName("languages")[0] as HTMLElement;
+        languagesSection.innerHTML = ''; // Clear existing content if any
         inputData.languages.forEach(language => {
             const languageElement = document.createElement('p');
             languageElement.innerHTML = `<img class="icon" src="src/icons/tick.svg" alt="icon not found"> ${language}`;
             languagesSection.appendChild(languageElement);
-        })
+        });
     }
-    if (inputData.experiences) {
-        let mainExperienceSection = document.getElementsByClassName("experience")[0] as HTMLElement
+
+    else if (!inputData.languages[0]) {
+        let language_heading = document.getElementsByClassName("language_heading")[0] as HTMLElement
+        if (language_heading) {
+            language_heading.style.display = "none";
+        }
+        let lanuguage_section = document.getElementsByClassName("languages")[0] as HTMLElement
+        if (lanuguage_section) {
+            lanuguage_section.style.display = "none";
+        }
+    }
+
+ 
+
+    // Experiences: only add experience section if experiences are provided
+    if (inputData.experiences[0].company) {
+        let mainExperienceSection = document.getElementsByClassName("experience")[0] as HTMLElement;
+        mainExperienceSection.innerHTML = ''; // Clear existing content if any
         inputData.experiences.forEach(experience => {
-            let experienceElement = createExperienceSection(experience.company, experience.description)
+            let experienceElement = createExperienceSection(experience.company, experience.description);
             mainExperienceSection.appendChild(experienceElement);
-        })
+        });
     }
-    if (inputData.educations) {
-        let mainEducationSection = document.getElementsByClassName("education")[0] as HTMLElement
+    else if(!inputData.experiences[0].company){
+        let experience_Section = document.getElementsByClassName("experience")[0] as HTMLElement
+        if (experience_Section) {
+            experience_Section.style.display = "none";
+        }
+    }
+
+    // Educations: only add education section if educations are provided
+    if (inputData.educations[0].institution) {
+        let mainEducationSection = document.getElementsByClassName("education")[0] as HTMLElement;
+        mainEducationSection.innerHTML = ''; // Clear existing content if any
         inputData.educations.forEach(education => {
-            let educationElement = createExperienceSection(education.institution, education.description)
+            let educationElement = createExperienceSection(education.institution, education.description);
             mainEducationSection.appendChild(educationElement);
-        })
+        });
     }
-    if (inputData.certifications) {
-        let mainCertificationSection = document.getElementsByClassName("certification")[0] as HTMLElement
+    else if(!inputData.educations[0].institution){
+        let education_Section = document.getElementsByClassName("education")[0] as HTMLElement
+        if (education_Section) {
+            education_Section.style.display = "none";
+        }
+    }
+
+    // Certifications: only add certification section if certifications are provided
+    if (inputData.certifications[0].certName) {
+        let mainCertificationSection = document.getElementsByClassName("certification")[0] as HTMLElement;
+        mainCertificationSection.innerHTML = ''; // Clear existing content if any
         inputData.certifications.forEach(certification => {
-            let certificationElement = createExperienceSection(certification.certName, certification.certDescription)
+            let certificationElement = createExperienceSection(certification.certName, certification.certDescription);
             mainCertificationSection.appendChild(certificationElement);
-        })
+        });
     }
+    else if(!inputData.certifications[0].certName){
+        let certification_Section = document.getElementsByClassName("certification")[0] as HTMLElement
+        if (certification_Section) {
+            certification_Section.style.display = "none";
+        }
+    }
+    uploadProfilePicture();
 
-    uploadProfilePicture()
-
-
-
+    // Toggle visibility of form and resume containers
     const formContainer = document.getElementsByClassName("form-container")[0] as HTMLElement;
     const resumeContainer = document.getElementsByClassName("resume-container")[0] as HTMLElement;
 
@@ -254,10 +319,6 @@ function generateResume(inputData: ResumeFormData) {
     if (resumeContainer) {
         resumeContainer.style.display = "flex";
     }
-
-
-
-
 }
 // to create sections
 function createExperienceSection(educationTitle: string, educationDetails: string): HTMLElement {

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Resume Information Form</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/resume.css">
+    <link rel="stylesheet" href="./src/css/mediaQuries.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Resume Information Form</h1>
+        <h3>Fill the form to generate Resume</h3>
+        <form id="resume-form" onsubmit="handleFormSubmit(event)">
+            <!-- Personal Information -->
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="profession">Profession:</label>
+                <input type="text" id="profession" name="profession" required>
+
+                <label for="about">About Me:</label>
+                <textarea id="about" name="about" rows="4" required placeholder="Brief description about yourself"></textarea>
+            </fieldset>
+
+            <!-- Experience -->
+            <fieldset id="experience-section">
+                <legend>Experience</legend>
+                <div class="experience-entry">
+                    <label for="experience-title">Experience Title:</label>
+                    <input type="text" name="experience-title[]" placeholder="Job Title/Role">
+
+                    <label for="experience-description">Description:</label>
+                    <textarea name="experience-description[]" rows="3" placeholder="Describe your experience"></textarea>
+                </div>
+                <button type="button" class="add-btn" onclick="addExperience()">Add More Experience</button>
+            </fieldset>
+
+            <!-- Education -->
+            <fieldset id="education-section">
+                <legend>Education</legend>
+                <div class="education-entry">
+                    <label for="education-title">Education Title:</label>
+                    <input type="text" name="education-title[]" placeholder="Degree/Certificate">
+
+                    <label for="education-description">Description:</label>
+                    <textarea name="education-description[]" rows="3" placeholder="Describe your education"></textarea>
+                </div>
+                <button type="button" class="add-btn" onclick="addEducation()">Add More Education</button>
+            </fieldset>
+
+            <!-- Certifications -->
+            <fieldset id="certification-section">
+                <legend>Certifications</legend>
+                <div class="certification-entry">
+                    <label for="certification-title">Certification Title:</label>
+                    <input type="text" name="certification-title[]" placeholder="Certification Title">
+
+                    <label for="certification-description">Description:</label>
+                    <textarea name="certification-description[]" rows="3" placeholder="Describe your certification"></textarea>
+                </div>
+                <button type="button" class="add-btn" onclick="addCertification()">Add More Certifications</button>
+            </fieldset>
+
+            <!-- Skills -->
+            <fieldset id="skills-section">
+                <legend>Skills</legend>
+                <div class="skill-entry">
+                    <label for="skill">Skill:</label>
+                    <input type="text" name="skill[]" placeholder="Enter a skill">
+                    <label for="proficiency">Proficiency Level:</label>
+                    <input type="text" name="proficiency[]" placeholder="Enter proficiency level">
+                </div>
+                <button type="button" class="add-btn" onclick="addSkill()">Add More Skills</button>
+            </fieldset>
+            
+            
+
+            <!-- Languages -->
+            <fieldset id="languages-section">
+                <legend>Languages</legend>
+                <div class="language-entry">
+                    <label for="language">Language:</label>
+                    <input type="text" name="language[]" placeholder="Enter a language">
+                </div>
+                <button type="button" class="add-btn" onclick="addLanguage()">Add More Languages</button>
+            </fieldset>
+
+
+            <!-- Contact Details -->
+            <fieldset>
+                <legend>Contact Details</legend>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="+123456789" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="example@example.com" required>
+                
+                <label for="website">Website:</label>
+                <input type="url" id="website" name="website" placeholder="https://yourwebsite.com">
+            </fieldset>
+
+            <fieldset id="profile-picture-section">
+                <legend>Profile Picture</legend>
+                <div class="profile-picture-entry">
+                    <label for="profile-picture">Profile Picture:</label>
+                    <input type="file" id="profile-picture" name="profile-picture" accept="image/*" required>
+                </div>
+                <button type="button" class="add-btn" onclick="uploadProfilePicture()">Upload Picture</button>
+            </fieldset>
+            
+             
+           
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="resume-container">
+
+        <section class="sidebar">
+            <img id="design" src="src/assets/design.png" alt="design not found">
+            <div class="profile_img_box" id="profile_img_box">
+                
+            </div>
+            <h2 class="sidebar_subheading">Contact Information</h2>
+            <div class="contact-info">
+                <p class="User_Email"></p>
+                <p class="User_Num"></p>
+                <p class="User_Website"></p>
+            </div>
+            <h2 class="sidebar_subheading skills_heading">Skills</h2>
+            <div class="skills">
+                <ul class="User_Skills">
+                 
+                </ul>
+
+            </div>
+            <h2 class="sidebar_subheading language_heading">Languages</h2>
+            <div class="languages">
+               
+            </div>
+        </section>
+        <section class="main-content">
+            <div class="user_info">
+                <h1 class="User_Name"></h1>
+                <h2 class="User_Profession"></h2>
+            </div>
+            <div class="about">
+                <h3>About Me</h3>
+                <p class="User_About"></p>
+            </div>
+            <div class="experience">
+                <h3>Experience</h3>
+               
+            </div>
+            <div class="education">
+                <h3>Education</h3>
+
+            </div>
+
+            <div class="certification">
+                <h3>Certification</h3>
+                
+            </div>
+        </section>
+
+    </div>
+    <script src="./src/js/form.js"></script>
+    <script src="./src/js/editable.js"></script>
+</body>
+</html>
