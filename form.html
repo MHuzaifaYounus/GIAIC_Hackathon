@@ -1,16 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Builder | Made By Huzaifa</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/formstyles.css">
+    <link rel="stylesheet" href="css/staticResume.css">
 </head>
+
 <body>
-    <div class="gradient"></div>
-    <div class="gradient gradient2"></div>
     <div class="main">
-        <h1 class="comming">Comming Soon ...</h1>
+        <div class="gradient"></div>
+        <div class="gradient gradient2"></div>
+        <div class="header">
+            <h1><span>R</span>esume <span>B</span>uilder</h1>
+            <h3>Create Your Professional Resume.</h3>
+        </div>
+
+        <div id="form_box" class="form_box">
+            <div class="head">
+            </div>
+            <div class="title">
+                <div class="count">
+                    <h2 id="formSerial">1</h2>
+                </div>
+                <h1 id="formTitle">Personal Info</h1>
+            </div>
+            <form id="personalinfo">
+                <div class="row">
+                    <input type="text" class="personalInfos" id="name" required placeholder="Enter Your Full Name *">
+                    <input type="text" class="personalInfos" id="profession" required placeholder="Enter Your Profession *">
+                </div>
+                <div class="imageInputBox">
+                    <input type="file" class="personalInfos" id="profileImg" required>
+                    <img  src="#" id="previewImg" alt="no img">
+                </div>
+                <input type="text" class="personalInfos" id="email" required placeholder="Enter Your Email Here *">
+                <input type="text" class="personalInfos" id="phone" required placeholder="Enter Your Phone Num Here *">
+                <input type="text" class="personalInfos" id="website" required  placeholder="Enter Your Website Link Here *">
+                <textarea rows="6" class="personalInfos" id="about" required placeholder="Write About You * "></textarea>
+            </form>
+
+            <form id="experience">
+                <div class="innerform">
+                    <input type="text" class="experience" id="experiencetittle" placeholder="Enter experience tittle ">
+                    <textarea class="experience" id="experiencedesc" placeholder="Write about experience "></textarea>
+                </div>
+                <div class="addbtndiv">
+                    <div class="addBtn">+</div>
+                </div>
+            </form>
+
+            <form id="education">
+                <div class="innerform">
+                    <input type="text" class="education" id="educationtittle" placeholder="Enter Education Title ">
+                    <textarea class="education" id="educationdesc" placeholder="Write About Education "></textarea>
+                </div>
+                <div class="addbtndiv">
+                    <div class="addBtn">+</div>
+                </div>
+            </form>
+
+            <form id="certification">
+                <div class="innerform">
+                    <input type="text" class="certification" id="certificationtittle" placeholder="Enter Certification Title ">
+                    <textarea class="certification" id="certificationdesc" placeholder="Write About Certification "></textarea>
+                </div>
+                <div class="addbtndiv">
+                    <div class="addBtn">+</div>
+                </div>
+            </form>
+
+            <form id="skills">
+                <div class="innerform">
+                    <input type="text" class="skills" id="skillstittle" placeholder="Enter Skill  Here">
+                    <input class="skills" id="skillsproficiency" type="number" placeholder="Enter Skill Proficiency "></input>
+                </div>
+                <div class="addbtndiv">
+                    <div class="addBtn">+</div>
+                </div>
+            </form>
+
+            <form id="languages">
+                <div class="innerform">
+                    <input type="text" class="languages" id="languagestittle" placeholder="Enter Language  Here">
+                    <input type="number" class="languages" id="languagesproficiency" placeholder="Enter Language Proficiency "></input>
+                </div>
+                <div class="addbtndiv">
+                    <div class="addBtn">+</div>
+                </div>
+            </form>
+
+            <button id="prevForm" class="prevbtn">Back</button>
+            <button id="nextForm" class="btn">Next</button>
+        </div>
+
+        <div id="resume" class="resume_container">
+            <div class="sideBar">
+                <img class="design" src="assets/design.png" alt="No img found">
+                <div class="profile">
+                    <img id="userImg" src="#" alt="no img found">
+                </div>
+                <div class="sidebar_section first_type">
+                    <h2 class="subheading">Contact Informtaion</h2>
+                    <div class="content">
+                        <img src="icons/email.svg" alt="no icon found">
+                        <p id="useremail">huzaifabuz@gmail.com</p>
+                    </div>
+                    <div class="content">
+                        <img src="icons/phone.svg" no icon found">
+                        <p id="userphone">+9254587859587</p>
+                    </div>
+                    <div class="content">
+                        <img src="icons/web.svg" alt="no icon found">
+                        <p id="useremail">huzaifayounus.netlify.app</p>
+                    </div>
+                   
+                </div>
+                <div id="skillSection" class="sidebar_section">
+                    <h2 class="subheading">Skills</h2>
+                   
+                </div>
+                <div id="languageSection" class="sidebar_section">
+                    <h2 class="subheading">Languages</h2>
+                   
+                </div>
+            </div>
+            <div id="mainContent" class="mainContent">
+                <div class="userInfo">
+                    <h1 id="username"></h1>
+                    <h2 id="userprofession"></h2>
+                </div>
+                <div class="about">
+                    <h3>| About Me</h3>
+                    <p id="userabout"></p>
+                </div>
+                <div class="experience">
+                    <h3>Experience</h3>
+                   
+                </div>
+                <div class="education">
+                    <h3>Education</h3>
+                    
+                </div>
+                <div class="certification">
+                    <h3>Certification</h3>
+                   
+
+                </div>
+            </div>
+        </div>
+
     </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
