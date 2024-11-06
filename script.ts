@@ -1,4 +1,4 @@
-
+let isEditting: boolean = false
 function collapseFeature() {
     document.querySelectorAll(".collapse-btn").forEach((element) => {
         element.addEventListener("click", () => {
@@ -189,6 +189,32 @@ const userInfo: UserInfo = {
     skill: [],
     language: [],
 }
+function clearData() {
+    userInfo.personalInfo.name = ''
+    userInfo.personalInfo.about = ''
+    userInfo.personalInfo.email = ''
+    userInfo.personalInfo.phone = ''
+    userInfo.personalInfo.profession = ''
+    userInfo.personalInfo.website = ''
+    userInfo.education = []
+    userInfo.experience = []
+    userInfo.certification = []
+    userInfo.skill = []
+    userInfo.language = []
+    const skills = document.getElementById("skillSection") as HTMLElement
+    skills.innerHTML = '<h2 class="subheading">Skills</h2>'
+    const languages = document.getElementById("languageSection") as HTMLElement
+    languages.innerHTML = ' <h2 class="subheading">Languages</h2>'
+    const Experience = document.getElementById("userexperience") as HTMLElement
+    Experience.innerHTML = '<h3>Experience</h3>'
+    const Education = document.getElementById("usereducation") as HTMLElement
+    Education.innerHTML = '<h3>Education</h3>'
+    const Certification = document.getElementById("usercertification") as HTMLElement
+    Certification.innerHTML = '<h3>Certification</h3>'
+
+
+
+}
 
 const fileInput = document.getElementById("profileImg") as HTMLInputElement
 fileInput.addEventListener("change", (e) => {
@@ -231,6 +257,7 @@ function getData() {
     for (let index = 0; index < ExperienceTitle.length; index++) {
         userInfo.experience.push({ tittle: ExperienceTitle[index], description: ExperienceDesc[index] })
     }
+
     // --------------------education 
     let EducationTitle: string[] = []
     let EducationDesc: string[] = []
@@ -246,6 +273,7 @@ function getData() {
     for (let index = 0; index < EducationTitle.length; index++) {
         userInfo.education.push({ tittle: EducationTitle[index], description: EducationDesc[index] })
     }
+
     // ----------------------certification
     let CertificationTitle: string[] = []
     let CertificationDesc: string[] = []
@@ -261,6 +289,7 @@ function getData() {
     for (let index = 0; index < CertificationTitle.length; index++) {
         userInfo.certification.push({ tittle: CertificationTitle[index], description: CertificationDesc[index] })
     }
+
     // --------------------skills
     let SkillsTitle: string[] = []
     let SkillsProf: number[] = []
@@ -276,6 +305,7 @@ function getData() {
     for (let index = 0; index < SkillsTitle.length; index++) {
         userInfo.skill.push({ tittle: SkillsTitle[index], proficiency: SkillsProf[index] })
     }
+
     // --------------------languages
     let LanguagesTitle: string[] = []
     let LanguagesProf: number[] = []
@@ -291,6 +321,7 @@ function getData() {
     for (let index = 0; index < LanguagesTitle.length; index++) {
         userInfo.language.push({ tittle: LanguagesTitle[index], proficiency: LanguagesProf[index] })
     }
+
     console.log(userInfo);
 }
 
@@ -365,6 +396,7 @@ function generatResume() {
                 }
             })
         }
+        // ------------------------skills || language
         else if (prop === "skill" || prop === "language") {
             userInfo[prop].forEach((e: SecondaryInfo) => {
                 if (e.tittle != "") {
@@ -394,3 +426,14 @@ function generatResume() {
     }
 
 }
+
+document.getElementById("edit")?.addEventListener("click", () => {
+    isEditting = true
+    clearData()
+    const formBox = document.getElementById("form_box") as HTMLElement
+    formBox.style.display = "block"
+    const resume = document.getElementById("resume") as HTMLElement
+    resume.style.display = "none"
+
+
+})

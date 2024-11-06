@@ -16,6 +16,35 @@
 }
 #resume{
     display: none;
+    margin-top: 100px;
+    position: relative;
+    border-top-right-radius: 0;
+}
+.optionsBox{
+    position: absolute;
+    top: -52px;
+    right: 0;
+    height: 50px;
+    width: 200px;
+    background-color: var(--main-text);
+    border: 2px solid var(--secondary-color);
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.optionsBox img{
+    width: 25px;
+    border-radius: 100%;
+    padding: 7px;
+    filter: invert();
+    transition: 0.3s;
+    cursor: pointer;
+}
+.optionsBox img:hover{
+    transform: scale(1.2);
+
 }
 .head {
     height: 60px;

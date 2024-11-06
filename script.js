@@ -1,5 +1,6 @@
 "use strict";
-var _a, _b, _c;
+var _a, _b, _c, _d;
+let isEditting = false;
 function collapseFeature() {
     document.querySelectorAll(".collapse-btn").forEach((element) => {
         element.addEventListener("click", () => {
@@ -145,6 +146,29 @@ const userInfo = {
     skill: [],
     language: [],
 };
+function clearData() {
+    userInfo.personalInfo.name = '';
+    userInfo.personalInfo.about = '';
+    userInfo.personalInfo.email = '';
+    userInfo.personalInfo.phone = '';
+    userInfo.personalInfo.profession = '';
+    userInfo.personalInfo.website = '';
+    userInfo.education = [];
+    userInfo.experience = [];
+    userInfo.certification = [];
+    userInfo.skill = [];
+    userInfo.language = [];
+    const skills = document.getElementById("skillSection");
+    skills.innerHTML = '<h2 class="subheading">Skills</h2>';
+    const languages = document.getElementById("languageSection");
+    languages.innerHTML = ' <h2 class="subheading">Languages</h2>';
+    const Experience = document.getElementById("userexperience");
+    Experience.innerHTML = '<h3>Experience</h3>';
+    const Education = document.getElementById("usereducation");
+    Education.innerHTML = '<h3>Education</h3>';
+    const Certification = document.getElementById("usercertification");
+    Certification.innerHTML = '<h3>Certification</h3>';
+}
 const fileInput = document.getElementById("profileImg");
 fileInput.addEventListener("change", (e) => {
     const target = e.target;
@@ -313,6 +337,7 @@ function generatResume() {
                 }
             });
         }
+        // ------------------------skills || language
         else if (prop === "skill" || prop === "language") {
             userInfo[prop].forEach((e) => {
                 var _a;
@@ -337,3 +362,11 @@ function generatResume() {
         resume.style.display = "flex";
     }
 }
+(_d = document.getElementById("edit")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
+    isEditting = true;
+    clearData();
+    const formBox = document.getElementById("form_box");
+    formBox.style.display = "block";
+    const resume = document.getElementById("resume");
+    resume.style.display = "none";
+});
