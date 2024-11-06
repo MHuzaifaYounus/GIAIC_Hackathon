@@ -72,6 +72,7 @@
 .sidebar_section .content {
     display: flex;
     margin: 20px 60px;
+   
 }
 
 .sidebar_section .content img {
@@ -178,5 +179,9 @@
     }
     .userInfo{
         margin-top: 20px;
+    }
+    .sidebar_section .content {
+       justify-content: center;
+       
     }
 }

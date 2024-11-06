@@ -323,6 +323,7 @@ function generatResume() {
         if (prop === "experience" || prop === "education" || prop === "certification") {
             userInfo[prop].forEach((e: MainInfo) => {
                 if (e.tittle != "") {
+                    console.log(prop);
                     const content = document.createElement("div")
                     content.className = "content"
 
@@ -358,28 +359,34 @@ function generatResume() {
                     }
 
                 }
+                else if (e.tittle === "" && userInfo[prop].length === 1) {
+                    const section = document.getElementById(`user${prop}`) as HTMLElement
+                    section.style.display = "none"
+                }
             })
         }
-        else if(prop === "skill" || prop === "language"){
-            userInfo[prop].forEach((e:SecondaryInfo) => { 
-                const content = document.createElement("div")
-                content.className = "content"
+        else if (prop === "skill" || prop === "language") {
+            userInfo[prop].forEach((e: SecondaryInfo) => {
+                if (e.tittle != "") {
+                    const content = document.createElement("div")
+                    content.className = "content"
 
-                const img = document.createElement("img")
-                img.src = "icons/tick.svg"
-                img.alt = "no icon found"
-                content.append(img)
+                    const img = document.createElement("img")
+                    img.src = "icons/tick.svg"
+                    img.alt = "no icon found"
+                    content.append(img)
 
-                const details = document.createElement('p')
-                details.innerText = `${e.tittle}: ${e.proficiency}%`
-                content.append(details)
+                    const details = document.createElement('p')
+                    details.innerText = `${e.tittle}: ${e.proficiency}%`
+                    content.append(details)
 
-                document.getElementById(`${prop}Section`)?.append(content)
+                    document.getElementById(`${prop}Section`)?.append(content)
+                }
 
-             })
+            })
         }
     }
-   
+
     collapseFeature()
     const resume = document.getElementById("resume") as HTMLElement | null
     if (resume) {

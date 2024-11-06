@@ -278,6 +278,7 @@ function generatResume() {
             userInfo[prop].forEach((e) => {
                 var _a, _b, _c, _d, _e, _f;
                 if (e.tittle != "") {
+                    console.log(prop);
                     const content = document.createElement("div");
                     content.className = "content";
                     const tittleBox = document.createElement("div");
@@ -306,21 +307,27 @@ function generatResume() {
                         (_f = (_e = document.getElementById("mainContent")) === null || _e === void 0 ? void 0 : _e.children[4]) === null || _f === void 0 ? void 0 : _f.append(content);
                     }
                 }
+                else if (e.tittle === "" && userInfo[prop].length === 1) {
+                    const section = document.getElementById(`user${prop}`);
+                    section.style.display = "none";
+                }
             });
         }
         else if (prop === "skill" || prop === "language") {
             userInfo[prop].forEach((e) => {
                 var _a;
-                const content = document.createElement("div");
-                content.className = "content";
-                const img = document.createElement("img");
-                img.src = "icons/tick.svg";
-                img.alt = "no icon found";
-                content.append(img);
-                const details = document.createElement('p');
-                details.innerText = `${e.tittle}: ${e.proficiency}%`;
-                content.append(details);
-                (_a = document.getElementById(`${prop}Section`)) === null || _a === void 0 ? void 0 : _a.append(content);
+                if (e.tittle != "") {
+                    const content = document.createElement("div");
+                    content.className = "content";
+                    const img = document.createElement("img");
+                    img.src = "icons/tick.svg";
+                    img.alt = "no icon found";
+                    content.append(img);
+                    const details = document.createElement('p');
+                    details.innerText = `${e.tittle}: ${e.proficiency}%`;
+                    content.append(details);
+                    (_a = document.getElementById(`${prop}Section`)) === null || _a === void 0 ? void 0 : _a.append(content);
+                }
             });
         }
     }
