@@ -31,16 +31,19 @@
             <form id="personalinfo">
                 <div class="row">
                     <input type="text" class="personalInfos" id="name" required placeholder="Enter Your Full Name *">
-                    <input type="text" class="personalInfos" id="profession" required placeholder="Enter Your Profession *">
+                    <input type="text" class="personalInfos" id="profession" required
+                        placeholder="Enter Your Profession *">
                 </div>
                 <div class="imageInputBox">
                     <input type="file" class="personalInfos" id="profileImg" required>
-                    <img  src="#" id="previewImg" alt="no img">
+                    <img src="#" id="previewImg" alt="no img">
                 </div>
                 <input type="text" class="personalInfos" id="email" required placeholder="Enter Your Email Here *">
                 <input type="text" class="personalInfos" id="phone" required placeholder="Enter Your Phone Num Here *">
-                <input type="text" class="personalInfos" id="website" required  placeholder="Enter Your Website Link Here *">
-                <textarea rows="6" class="personalInfos" id="about" required placeholder="Write About You * "></textarea>
+                <input type="text" class="personalInfos" id="website" required
+                    placeholder="Enter Your Website Link Here *">
+                <textarea rows="6" class="personalInfos" id="about" required
+                    placeholder="Write About You * "></textarea>
             </form>
 
             <form id="experience">
@@ -65,8 +68,10 @@
 
             <form id="certification">
                 <div class="innerform">
-                    <input type="text" class="certification" id="certificationtittle" placeholder="Enter Certification Title ">
-                    <textarea class="certification" id="certificationdesc" placeholder="Write About Certification "></textarea>
+                    <input type="text" class="certification" id="certificationtittle"
+                        placeholder="Enter Certification Title ">
+                    <textarea class="certification" id="certificationdesc"
+                        placeholder="Write About Certification "></textarea>
                 </div>
                 <div class="addbtndiv">
                     <div class="addBtn">+</div>
@@ -76,7 +81,8 @@
             <form id="skills">
                 <div class="innerform">
                     <input type="text" class="skills" id="skillstittle" placeholder="Enter Skill  Here">
-                    <input class="skills" id="skillsproficiency" type="number" placeholder="Enter Skill Proficiency "></input>
+                    <input class="skills" id="skillsproficiency" type="number"
+                        placeholder="Enter Skill Proficiency "></input>
                 </div>
                 <div class="addbtndiv">
                     <div class="addBtn">+</div>
@@ -86,7 +92,8 @@
             <form id="languages">
                 <div class="innerform">
                     <input type="text" class="languages" id="languagestittle" placeholder="Enter Language  Here">
-                    <input type="number" class="languages" id="languagesproficiency" placeholder="Enter Language Proficiency "></input>
+                    <input type="number" class="languages" id="languagesproficiency"
+                        placeholder="Enter Language Proficiency "></input>
                 </div>
                 <div class="addbtndiv">
                     <div class="addBtn">+</div>
@@ -98,7 +105,7 @@
         </div>
 
         <div id="resume" class="resume_container">
-            <div class="optionsBox">
+            <div id="optionsBox" class="optionsBox">
                 <img id="download" src="assets/download.svg" alt="no image found">
                 <img id="edit" src="assets/edit.svg" alt="no image found">
                 <img id="share" src="assets/share.svg" alt="no image found">
@@ -123,15 +130,15 @@
                         <img src="icons/web.svg" alt="no icon found">
                         <p id="userwebsite"></p>
                     </div>
-                   
+
                 </div>
                 <div id="skillSection" class="sidebar_section">
                     <h2 class="subheading">Skills</h2>
-                   
+
                 </div>
                 <div id="languageSection" class="sidebar_section">
                     <h2 class="subheading">Languages</h2>
-                   
+
                 </div>
             </div>
             <div id="mainContent" class="mainContent">
@@ -145,20 +152,53 @@
                 </div>
                 <div id="userexperience" class="experience">
                     <h3>Experience</h3>
-                   
+
                 </div>
-                <div id="usereducation"  class="education">
+                <div id="usereducation" class="education">
                     <h3>Education</h3>
-                    
+
                 </div>
-                <div id="usercertification"  class="certification">
-                    <h3>Certification</h3>          
+                <div id="usercertification" class="certification">
+                    <h3>Certification</h3>
                 </div>
             </div>
         </div>
 
     </div>
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script>
+        function downloadPDF() {
+            const resume = document.getElementById('resume')
+            const optionbox = document.getElementById("optionsBox")
+            optionbox.style.display = "none"
+            resume.style.marginTop = "10px"
+
+            document.querySelectorAll(".collapse-btn").forEach((element) => {
+                const content = element.parentElement.parentElement.children[1].children[0]
+                content.style.display = "block"
+                element.innerHTML = "-"
+            })
+
+            setTimeout(() => {
+                optionbox.style.display = "flex"
+                resume.style.marginTop = "100px"
+
+            }, 2000);
+
+            if (resume) {
+                html2pdf().from(resume).save('resume.pdf');
+            }
+
+        }
+
+        document.getElementById("download")?.addEventListener("click", () => {
+            downloadPDF()
+        })
+
+
+    </script>
+
 </body>
 
 </html>
