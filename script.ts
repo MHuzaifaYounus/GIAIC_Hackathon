@@ -337,10 +337,13 @@ function filledRequiredFields(): boolean {
     })
     return result
 }
+
 function generatResume() {
     // ----------------------personalInfo
-    const img = document.getElementById("userImg") as HTMLImageElement
-    img.src = userInfo.personalInfo.profileImg as string
+    const img = document.getElementById("userImg") as HTMLImageElement | null
+    if(img){
+        img.src = userInfo.personalInfo.profileImg as string
+    }
     const obj = userInfo.personalInfo as PersonalInfo
     for (const key in obj) {
         const prop = key as keyof PersonalInfo
@@ -353,9 +356,12 @@ function generatResume() {
         const prop = key as keyof UserInfo
         // --------------------------experience | education | certification
         if (prop === "experience" || prop === "education" || prop === "certification") {
+            const section = document.getElementById(`user${prop}`) as HTMLElement | null
+            if(section){
+                section.style.display = "block"
+            }
             userInfo[prop].forEach((e: MainInfo) => {
                 if (e.tittle != "") {
-                    console.log(prop);
                     const content = document.createElement("div")
                     content.className = "content"
 
@@ -380,20 +386,24 @@ function generatResume() {
                     details.innerText = e.description as string
                     detailsBox.append(details)
 
-                    if (prop === "experience") {
-                        document.getElementById("mainContent")?.children[2]?.append(content)
+                    const mainContent = document.getElementById("mainContent") as HTMLElement | null
+                    if (mainContent) {
+                        if (prop === "experience") {
+                            mainContent.children[2]?.append(content);
+                        } else if (prop === "education") {
+                            mainContent.children[3]?.append(content);
+                        } else if (prop === "certification") {
+                            mainContent.children[4]?.append(content);
+                        }
                     }
-                    else if (prop === "education") {
-                        document.getElementById("mainContent")?.children[3]?.append(content)
-                    }
-                    else if (prop === "certification") {
-                        document.getElementById("mainContent")?.children[4]?.append(content)
-                    }
+                    
 
                 }
                 else if (e.tittle === "" && userInfo[prop].length === 1) {
-                    const section = document.getElementById(`user${prop}`) as HTMLElement
-                    section.style.display = "none"
+                    const section = document.getElementById(`user${prop}`) as HTMLElement | null
+                    if(section){
+                        section.style.display = "none"
+                    }
                 }
             })
         }

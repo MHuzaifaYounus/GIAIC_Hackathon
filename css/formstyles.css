@@ -1,4 +1,4 @@
-:root {
+:root { 
     --primary-color: #172243;
     --secondary-color: #5290C9;
     --main-text: #254472;
@@ -72,7 +72,7 @@
 }
 
 .title h1 {
-    font-size: 2rem;
+    font-size: 1.7rem;
     margin-left: 20px;
 }
 
@@ -203,14 +203,18 @@ textarea {
 
 @media screen and (max-width:1030px) {
     .form_box {
-        width: 100%;
+        width: 98%;
     }
 }
 
 @media screen and (max-width:700px) {
+    .form_box{
+        height: 625px;
+    }
     form {
         width: 95%;
         overflow-x: hidden;
+        height: 395px;
     }
 
     form .row {
@@ -256,8 +260,8 @@ textarea {
     }
 
     textarea {
-        min-width: 75%;
-        max-width: 75%;
+        min-width: 78%;
+        max-width: 78%;
     }
 }
 

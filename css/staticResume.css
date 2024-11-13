@@ -1,6 +1,7 @@
-.main{
+.main {
     width: 100%;
 }
+
 .resume_container {
     position: relative;
     max-width: 900px;
@@ -23,7 +24,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: inherit;
+    z-index: -1;
 }
 
 .mainContent {
@@ -40,7 +41,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    
+
 }
 
 .profile img {
@@ -155,31 +156,47 @@
 .certification .content {
     margin-top: 30px;
 }
-.design{
+
+.design {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-  z-index: -1;
+    z-index: -1;
 }
 
 @media screen and (max-width:700px) {
-    .resume_container{
+    .resume_container {
         flex-direction: column;
+        width: 98%;
+    }
+
+    .sideBar {
         width: 100%;
     }
-    .sideBar{
+
+    .mainContent {
         width: 100%;
     }
-    .mainContent{
-        width: 100%;
-    }
-    .userInfo{
+
+    .userInfo {
         margin-top: 20px;
     }
+
     .sidebar_section .content {
-       justify-content: center;
-       
+        justify-content: center;
+
+    }
+
+    .design {
+        display: none;
+    }
+
+    .about,
+    .experience,
+    .education,
+    .certification {
+        width: 78%;
     }
 }

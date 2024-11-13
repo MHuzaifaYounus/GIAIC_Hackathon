@@ -4,7 +4,7 @@
     --main-text: #254472;
 }
 
-* {
+* { 
     margin: 0;
     padding: 0;
 }
@@ -73,7 +73,17 @@ a {
     align-items: center;
     border-bottom: 2px dotted var(--secondary-color);
 }
+.logo{
+    height: 100%;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
+.logo img{
+    height: 40px;
+}
 span {
     color: var(--secondary-color);
 }
@@ -82,14 +92,16 @@ span {
         font-size: 1.5rem;
     }
     .header h3{
-        font-size: 0.8rem;
+        font-size: 1rem;
+        padding-bottom: 10px;
+        padding-top: 10px;
     }
-
  
 }
-@media screen and (max-width:400px) {
+@media screen and (max-width:700px) {
     .header{
         flex-direction: column;
         height: 80px;
     }
+    
 }
