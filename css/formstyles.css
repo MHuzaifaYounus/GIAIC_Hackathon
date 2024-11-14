@@ -210,6 +210,44 @@ textarea {
     padding-top: 20px;
     justify-content: end;
 }
+.Popup_box{
+    position: relative;
+    height: 400px;
+    border: 2px solid var(--secondary-color);
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-250px) translateY(-200px);
+    width: 500px;
+    z-index: 3;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: popUp 0.5s ease ;
+}
+.Popup_box #cancel{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    color: gray;
+}
+.Popup_box .cancel:hover{
+    color: white;
+}
+@keyframes popUp {
+    0%{
+        opacity: 0;
+        transform: scale(0) translateX(-250px) translateY(-200px);
+    }
+    100%{
+        opacity: 100%;
+        transform: scale(1) translateX(-250px) translateY(-200px);;
+    }
+}
+
 @keyframes formAnime {
     0%{
         opacity: 0;

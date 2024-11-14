@@ -459,8 +459,19 @@ document.getElementById("edit")?.addEventListener("click", () => {
 })
 document.getElementById("share")?.addEventListener("click", () => {
     console.log("sharing");
+    const popupBox = document.getElementById("popupBox") as HTMLElement | null
+    if(popupBox){
+        popupBox.style.display ="flex"
+    }
     
 })
+document.getElementById("cancel")?.addEventListener("click", () => {
+    const popupBox = document.getElementById("popupBox") as HTMLElement | null
+    if(popupBox){
+        popupBox.style.display ="none"
+    }
+})
+
 
 
 

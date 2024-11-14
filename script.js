@@ -1,5 +1,5 @@
 "use strict";
-var _a, _b, _c, _d, _e;
+var _a, _b, _c, _d, _e, _f;
 let isEditting = false;
 function collapseFeature() {
     document.querySelectorAll(".collapse-btn").forEach((element) => {
@@ -390,4 +390,14 @@ function generatResume() {
 });
 (_e = document.getElementById("share")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", () => {
     console.log("sharing");
+    const popupBox = document.getElementById("popupBox");
+    if (popupBox) {
+        popupBox.style.display = "flex";
+    }
+});
+(_f = document.getElementById("cancel")) === null || _f === void 0 ? void 0 : _f.addEventListener("click", () => {
+    const popupBox = document.getElementById("popupBox");
+    if (popupBox) {
+        popupBox.style.display = "none";
+    }
 });
