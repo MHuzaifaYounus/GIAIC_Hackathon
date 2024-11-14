@@ -457,6 +457,11 @@ document.getElementById("edit")?.addEventListener("click", () => {
 
 
 })
+document.getElementById("share")?.addEventListener("click", () => {
+    console.log("sharing");
+    
+})
+
 
 
 

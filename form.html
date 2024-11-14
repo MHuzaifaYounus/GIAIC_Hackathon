@@ -240,26 +240,6 @@
 
             });
 
-            html2pdf().from(resume).outputPdf('datauristring').then((pdfDataUri) => {
-
-                const base64Content = pdfDataUri.split(',')[1];
-
-
-                fetch('/uploads', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ fileData: base64Content, fileName: 'resume.pdf' }),
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log('PDF uploaded successfully:', data);
-                    })
-                    .catch(error => {
-                        console.error('Error uploading PDF:', error);
-                    });
-            });
 
         }
 

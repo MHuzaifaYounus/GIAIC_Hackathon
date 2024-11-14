@@ -1,5 +1,5 @@
 "use strict";
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 let isEditting = false;
 function collapseFeature() {
     document.querySelectorAll(".collapse-btn").forEach((element) => {
@@ -387,4 +387,7 @@ function generatResume() {
     formBox.style.display = "block";
     const resume = document.getElementById("resume");
     resume.style.display = "none";
+});
+(_e = document.getElementById("share")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", () => {
+    console.log("sharing");
 });
