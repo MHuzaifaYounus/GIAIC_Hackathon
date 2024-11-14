@@ -13,6 +13,7 @@
     border-radius: 10px;
     color: black;
     z-index: 1;
+    animation: opacity 1.3s ease-out;
 }
 
 .sideBar {
@@ -25,6 +26,7 @@
     flex-direction: column;
     align-items: center;
     z-index: -1;
+    animation: leftToRight 0.9s ease-out;
 }
 
 .mainContent {
@@ -41,7 +43,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-
+    animation: profileAnime 1.8s ease-out ;
 }
 
 .profile img {
@@ -58,10 +60,15 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    animation: sideBarScetionAnime 1.7s  ease ;
 }
+
+
 
 .first_type {
     margin-top: 100px;
+    animation:sideBarScetionAnime 1.4s ease ;
+
 }
 
 .sidebar_section .subheading {
@@ -96,6 +103,7 @@
     font-size: 3rem;
     font-weight: bolder;
     color: var(--main-text);
+    animation: infoAnime 1.5s ease-out ;
 }
 
 .userInfo h2 {
@@ -104,8 +112,23 @@
     font-size: 1.5rem;
     color: var(--main-text);
     margin-bottom: 20px;
-}
+    animation: infoAnime 1.8s ease-out ;
 
+}
+.mainContent .about{
+
+    animation: sectionsAnime 2.2s ease-out ;
+}
+.mainContent .experience{
+    animation: sectionsAnime 2.4s ease-out ;
+}
+.mainContent .education{
+
+    animation: sectionsAnime 2.6s ease-out ;
+}
+.mainContent .certification{
+    animation: sectionsAnime 2.8s ease-out ;
+}
 .about,
 .experience,
 .education,
@@ -164,8 +187,108 @@
     width: 100%;
     height: 100%;
     z-index: -1;
+    animation: designAnime 2s  ease-out ;
 }
 
+@keyframes leftToRight {
+    0%{
+        opacity: 0;
+        transform: translate(-50%) ;
+    }
+    100%{
+        opacity: 100%;
+        transform: translate(0);
+    }
+    
+}
+
+@keyframes sectionsAnime {
+    0%{
+        opacity: 0;
+        transform: translate(40%);
+    }
+    63%{
+        opacity: 0;
+        transform: translate(40%);
+    }
+    100%{
+        opacity: 100%;
+        transform: translate(0);
+    }
+    
+}
+
+@keyframes sideBarScetionAnime {
+    0%{
+        opacity: 0;
+        transform: translateY(30%);
+    }
+    52.9%{
+        opacity: 0;
+        transform: translateY(30%);
+    }
+    100%{
+        opacity: 100%;
+        transform: translate(0);
+    }
+    
+}
+
+@keyframes profileAnime {
+    0%{
+        opacity: 0;
+        transform: translateY(-30%);
+    }
+    44.4%{
+        opacity: 0;
+        transform: translateY(-30%);
+    }
+    100%{
+        opacity: 100%;
+        transform: translate(0);
+    }
+    
+}
+
+@keyframes infoAnime {
+    0%{
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    66.6%{
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100%{
+        opacity: 100%;
+        transform: scale(1);
+    }
+}
+@keyframes opacity {
+    0%{
+        opacity: 0;
+       
+    }
+    100%{
+        opacity: 100%;
+  
+    }
+    
+}
+@keyframes designAnime {
+    0%{
+        opacity: 0;
+       
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100%;
+  
+    }
+    
+}
 
 
 @media screen and (max-width:700px) {

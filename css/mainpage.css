@@ -9,6 +9,7 @@
 .left {
     width: 35%;
     height: 500px;
+    animation: leftToRight 1.5s ease-in-out;
 }
 
 .left h1 {
@@ -27,6 +28,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transform: translate(30%);
+    animation: bottomToTop 1s 0.8s ease-out forwards; 
     
 }
 .right img{
@@ -44,7 +48,10 @@
     font-size: 1.1rem;
     transition: 0.3s;
     cursor: pointer;
+    opacity: 0;
+    transform: translate(30%);
     background-color: var(--secondary-color);
+    animation: bottomToTop 1s 1.2s ease-out forwards;
 }
 .btn2{
     background-color:transparent;
@@ -56,6 +63,42 @@
 .btn2:hover{
     background-color: var(--secondary-color);
 }
+
+@keyframes leftToRight {
+    0%{
+        opacity: 0;
+        transform: translate(-100%);
+    }
+    100%{
+        opacity: 100%;
+        transform: translate(0);
+    }
+    
+}
+@keyframes rightToLeft {
+    0%{
+        opacity: 0;
+        transform: translate(100%);
+    }
+    100%{
+        opacity: 100%;
+        transform: translate(0);
+    }
+    
+}
+@keyframes bottomToTop {
+    0%{
+        opacity: 0;
+        transform: translateY(30%);
+    }
+    100%{
+        opacity: 100%;
+        transform: translate(0);
+    }
+    
+}
+
+
 @media screen and (max-width:1200px) {
     .hero_section{
         flex-direction: column;

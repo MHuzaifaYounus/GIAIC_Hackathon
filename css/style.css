@@ -73,15 +73,23 @@ a {
     justify-content: space-evenly;
     align-items: center;
     border-bottom: 2px dotted var(--secondary-color);
+  
 }
+
 .logo{
     height: 100%;
     width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: leftToRight 1s ease-out ;
+    
+}
+.header h3{
+    animation: rightToLeft 1s ease-out ;
 
 }
+
 .logo img{
     height: 40px;
 }
@@ -103,6 +111,28 @@ span {
     .header{
         flex-direction: column;
         height: 80px;
+    }
+    
+}
+@keyframes leftToRight {
+    0%{
+        opacity: 0;
+        transform: translate(-100%);
+    }
+    100%{
+        opacity: 100%;
+        transform: translate(0);
+    }
+    
+}
+@keyframes rightToLeft {
+    0%{
+        opacity: 0;
+        transform: translate(100%);
+    }
+    100%{
+        opacity: 100%;
+        transform: translate(0);
     }
     
 }
