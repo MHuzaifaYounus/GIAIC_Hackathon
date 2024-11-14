@@ -66,7 +66,12 @@ document.getElementById("nextForm")?.addEventListener("click", () => {
         if (formBox) {
             formBox.style.display = "none"
         }
+        const optionsBox = document.getElementById("optionsBox") as HTMLElement | null
+        if(optionsBox){
+            optionsBox.style.display = "flex"
+        }
         generatResume()
+
 
     }
 
@@ -341,7 +346,7 @@ function filledRequiredFields(): boolean {
 function generatResume() {
     // ----------------------personalInfo
     const img = document.getElementById("userImg") as HTMLImageElement | null
-    if(img){
+    if (img) {
         img.src = userInfo.personalInfo.profileImg as string
     }
     const obj = userInfo.personalInfo as PersonalInfo
@@ -357,7 +362,7 @@ function generatResume() {
         // --------------------------experience | education | certification
         if (prop === "experience" || prop === "education" || prop === "certification") {
             const section = document.getElementById(`user${prop}`) as HTMLElement | null
-            if(section){
+            if (section) {
                 section.style.display = "block"
             }
             userInfo[prop].forEach((e: MainInfo) => {
@@ -396,12 +401,12 @@ function generatResume() {
                             mainContent.children[4]?.append(content);
                         }
                     }
-                    
+
 
                 }
                 else if (e.tittle === "" && userInfo[prop].length === 1) {
                     const section = document.getElementById(`user${prop}`) as HTMLElement | null
-                    if(section){
+                    if (section) {
                         section.style.display = "none"
                     }
                 }
@@ -439,6 +444,10 @@ function generatResume() {
 }
 
 document.getElementById("edit")?.addEventListener("click", () => {
+    const optionsBox = document.getElementById("optionsBox") as HTMLElement | null
+    if(optionsBox){
+        optionsBox.style.display = "none"
+    }
     isEditting = true
     clearData()
     const formBox = document.getElementById("form_box") as HTMLElement
@@ -448,5 +457,6 @@ document.getElementById("edit")?.addEventListener("click", () => {
 
 
 })
+
 
 

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <div class="main">
         <div class="gradient"></div>
         <div class="gradient gradient2"></div>
@@ -106,13 +107,13 @@
             <button id="prevForm" class="prevbtn">Back</button>
             <button id="nextForm" class="btn">Next</button>
         </div>
-
+     
         <div id="resume" class="resume_container">
             <div id="optionsBox" class="optionsBox">
                 <img id="download" src="assets/download.svg" alt="no image found">
                 <img id="edit" src="assets/edit.svg" alt="no image found">
                 <img id="share" src="assets/share.svg" alt="no image found">
-
+    
             </div>
             <div class="sideBar">
                 <img class="design" src="assets/design.png" alt="No img found">
@@ -169,14 +170,16 @@
         </div>
 
     </div>
+
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
     <script>
         function downloadPDF() {
-            const resume = document.getElementById('resume')
-            const optionbox = document.getElementById("optionsBox")
-            optionbox.style.display = "none"
+            const resume = document.getElementById("resume")
             resume.style.marginTop = "0"
+            resume.style.transform = "scale(1)";
+            resume.style.width = "100%";
+            resume.style.left = "0";
 
             document.querySelectorAll(".collapse-btn").forEach((element) => {
                 const content = element.parentElement.parentElement.children[1].children[0]
@@ -184,22 +187,44 @@
                 element.innerHTML = "-"
             })
 
-            setTimeout(() => {
-                optionbox.style.display = "flex"
+            const options = {
+                margin: [0, 0, 0, 0],
+                filename: 'resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait' }
+            };
+
+
+            html2pdf().set(options).from(resume).save().then(() => {
                 resume.style.marginTop = "100px"
-             
+                if (screen.width <= 700) {
+                    resume.style.transform = "scale(0.5) translate(-450px)"; 
+                    resume.style.transformOrigin = "top left"; 
+                    resume.style.left = "50%"; 
+                    resume.style.width = "200%"; 
+                    resume.style.height = "auto"; 
 
-            }, 2000);
+                }
+                if (screen.width <= 450) {
+                    resume.style.transform = "scale(0.3) translate(-450px)"; 
+                    resume.style.transformOrigin = "top left"; 
+                    resume.style.left = "50%"; 
+                    resume.style.width = "500%"; 
+                    resume.style.height = "auto"; 
 
-            if (resume) {
-                html2pdf().from(resume).save('resume.pdf');
-            }
+                }
 
+            });
         }
+
+
 
         document.getElementById("download")?.addEventListener("click", () => {
             downloadPDF()
+
         })
+
     </script>
 </body>
 

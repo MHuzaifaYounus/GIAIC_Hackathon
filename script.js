@@ -62,6 +62,10 @@ let currentIndex = 1;
         if (formBox) {
             formBox.style.display = "none";
         }
+        const optionsBox = document.getElementById("optionsBox");
+        if (optionsBox) {
+            optionsBox.style.display = "flex";
+        }
         generatResume();
     }
 });
@@ -373,6 +377,10 @@ function generatResume() {
     }
 }
 (_d = document.getElementById("edit")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
+    const optionsBox = document.getElementById("optionsBox");
+    if (optionsBox) {
+        optionsBox.style.display = "none";
+    }
     isEditting = true;
     clearData();
     const formBox = document.getElementById("form_box");

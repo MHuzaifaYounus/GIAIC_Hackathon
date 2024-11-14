@@ -166,31 +166,15 @@
     z-index: -1;
 }
 
+
+
 @media screen and (max-width:700px) {
     .resume_container {
-        flex-direction: column;
-        width: 98%;
-    }
-
-    .sideBar {
-        width: 100%;
-    }
-
-    .mainContent {
-        width: 100%;
-    }
-
-    .userInfo {
-        margin-top: 20px;
-    }
-
-    .sidebar_section .content {
-        justify-content: center;
-
-    }
-
-    .design {
-        display: none;
+        transform: scale(0.5) translate(-450px);
+        transform-origin: top left;
+        left: 50%;
+        width: 200%;
+        height: auto;
     }
 
     .about,
@@ -198,5 +182,17 @@
     .education,
     .certification {
         width: 78%;
+    }
+
+}
+
+
+@media screen and (max-width:450px) {
+    .resume_container {
+        transform: scale(0.3) translate(-450px);
+        transform-origin: top left;
+        left: 50%;
+        width: 500%;
+
     }
 }
